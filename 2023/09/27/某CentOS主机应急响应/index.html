@@ -13,18 +13,18 @@
 <meta property="og:site_name" content="FBD的渗透博客">
 <meta property="og:description" content="实操1 CentOS首先查看异常连接端口：netstat -antp有异常链接到192.168.226.131:6666 是shell.elf，疑似木马根据pid查找位置： 1lsof -p pid  找到木马位置&#x2F;root&#x2F;shell.elf查看history和.bash_history发现记录已经被清除查找特权账户： 1awk -F: &amp;#x27;$3&#x3D;&#x3D;0 &amp;#123;p">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/26349912/1692711302726-8d5223ec-bb87-4508-ab75-5596562e16df.png#averageHue=%2324292b&clientId=ue4ea1ff8-4d6c-4&from=paste&height=307&id=ue8d802dc&originHeight=461&originWidth=1555&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=116863&status=done&style=none&taskId=uec8845d6-6fd5-4e90-85ba-a758b39f026&title=&width=1036.6666666666667">
-<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/26349912/1692711413021-18922eaf-3c6e-4c1a-b975-778166b66481.png#averageHue=%2325292b&clientId=ue4ea1ff8-4d6c-4&from=paste&height=199&id=ub0b6c123&originHeight=298&originWidth=1826&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=83406&status=done&style=none&taskId=ua1d35b90-39af-4433-829d-800b0732e5d&title=&width=1217.3333333333333">
-<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/26349912/1693581046255-483d2476-4cfd-4eb4-ae26-334e52336f0d.png#averageHue=%2324292d&clientId=u8b435fc4-0de0-4&from=paste&height=71&id=ud5f7e12b&originHeight=106&originWidth=520&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=14411&status=done&style=none&taskId=u15f04d5e-37c4-447b-b118-d44da5b3c10&title=&width=346.6666666666667">
-<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/26349912/1693581699530-e2c2816d-322c-4378-986c-9de80fe4c523.png#averageHue=%2324282a&clientId=u8b435fc4-0de0-4&from=paste&height=368&id=u87875260&originHeight=552&originWidth=772&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=80923&status=done&style=none&taskId=u08c07dd4-a27b-4a77-a70d-41cb010abbe&title=&width=514.6666666666666">
-<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/26349912/1693581807070-0854735f-71dd-4762-b94f-32dfadfc408f.png#averageHue=%2324282c&clientId=u8b435fc4-0de0-4&from=paste&height=132&id=u89f0f4b7&originHeight=198&originWidth=1387&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=46097&status=done&style=none&taskId=u150541ba-bfc1-4074-8bb6-fb1f88a2c23&title=&width=924.6666666666666">
-<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/26349912/1693582011807-212aadd9-0e16-4b4d-ac76-694086bc47bd.png#averageHue=%23fefcfb&clientId=u8b435fc4-0de0-4&from=paste&height=848&id=ue7e47c8b&originHeight=1272&originWidth=1816&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=203536&status=done&style=none&taskId=u72d2fa9d-b31d-4ec0-9906-bd4a1d41d50&title=&width=1210.6666666666667">
+<meta property="og:image" content="https://z1.ax1x.com/2023/09/27/pPHO7lt.png">
+<meta property="og:image" content="https://z1.ax1x.com/2023/09/27/pPHOIfA.png">
+<meta property="og:image" content="https://z1.ax1x.com/2023/09/27/pPHO4FH.png">
+<meta property="og:image" content="https://z1.ax1x.com/2023/09/27/pPHOTSI.png">
+<meta property="og:image" content="https://z1.ax1x.com/2023/09/27/pPHO5Yd.png">
+<meta property="og:image" content="https://z1.ax1x.com/2023/09/27/pPHObOf.png">
 <meta property="article:published_time" content="2023-09-27T07:59:59.000Z">
-<meta property="article:modified_time" content="2023-09-27T08:00:19.059Z">
+<meta property="article:modified_time" content="2023-09-27T08:26:52.206Z">
 <meta property="article:author" content="FBDhhhh">
 <meta property="article:tag" content="应急响应">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2023/png/26349912/1692711302726-8d5223ec-bb87-4508-ab75-5596562e16df.png#averageHue=%2324292b&clientId=ue4ea1ff8-4d6c-4&from=paste&height=307&id=ue8d802dc&originHeight=461&originWidth=1555&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=116863&status=done&style=none&taskId=uec8845d6-6fd5-4e90-85ba-a758b39f026&title=&width=1036.6666666666667">
+<meta name="twitter:image" content="https://z1.ax1x.com/2023/09/27/pPHO7lt.png">
   
     <link rel="alternate" href="/atom.xml" title="FBD的渗透博客" type="application/atom+xml">
   
@@ -105,19 +105,19 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h3 id="实操1-CentOS"><a href="#实操1-CentOS" class="headerlink" title="实操1 CentOS"></a>实操1 CentOS</h3><p>首先查看异常连接端口：<br>netstat -antp<br><img src="https://cdn.nlark.com/yuque/0/2023/png/26349912/1692711302726-8d5223ec-bb87-4508-ab75-5596562e16df.png#averageHue=%2324292b&clientId=ue4ea1ff8-4d6c-4&from=paste&height=307&id=ue8d802dc&originHeight=461&originWidth=1555&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=116863&status=done&style=none&taskId=uec8845d6-6fd5-4e90-85ba-a758b39f026&title=&width=1036.6666666666667" alt="image.png"><br>有异常链接到192.168.226.131:6666 是shell.elf，疑似木马<br>根据pid查找位置：</p>
+        <h3 id="实操1-CentOS"><a href="#实操1-CentOS" class="headerlink" title="实操1 CentOS"></a>实操1 CentOS</h3><p>首先查看异常连接端口：<br>netstat -antp<br><a target="_blank" rel="noopener" href="https://imgse.com/i/pPHO7lt"><img src="https://z1.ax1x.com/2023/09/27/pPHO7lt.png" alt="pPHO7lt.png"></a><br>有异常链接到192.168.226.131:6666 是shell.elf，疑似木马<br>根据pid查找位置：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsof -p pid</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/26349912/1692711413021-18922eaf-3c6e-4c1a-b975-778166b66481.png#averageHue=%2325292b&clientId=ue4ea1ff8-4d6c-4&from=paste&height=199&id=ub0b6c123&originHeight=298&originWidth=1826&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=83406&status=done&style=none&taskId=ua1d35b90-39af-4433-829d-800b0732e5d&title=&width=1217.3333333333333" alt="image.png"><br>找到木马位置&#x2F;root&#x2F;shell.elf<br>查看history和.bash_history发现记录已经被清除<br>查找特权账户：</p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pPHOIfA"><img src="https://z1.ax1x.com/2023/09/27/pPHOIfA.png" alt="pPHOIfA.png"></a><br>找到木马位置&#x2F;root&#x2F;shell.elf<br>查看history和.bash_history发现记录已经被清除<br>查找特权账户：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk -F: &#x27;$3==0 &#123;print$1&#125;&#x27; /etc/passwd</span><br></pre></td></tr></table></figure>
 
 <p>和远程登陆账户对比：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">awk &#x27;/\$1|\$6/&#123;print $1&#125;&#x27; /etc/shadow</span><br><span class="line">grep &quot;Accepted &quot; /var/log/secure* | awk &#x27;&#123;print $1,$2,$3,$9,$11&#125;&#x27;</span><br></pre></td></tr></table></figure>
 
-<p>由此确认wxiaoge账户是黑客创建的后门账户<br>排查定时任务：<br><img src="https://cdn.nlark.com/yuque/0/2023/png/26349912/1693581046255-483d2476-4cfd-4eb4-ae26-334e52336f0d.png#averageHue=%2324292d&clientId=u8b435fc4-0de0-4&from=paste&height=71&id=ud5f7e12b&originHeight=106&originWidth=520&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=14411&status=done&style=none&taskId=u15f04d5e-37c4-447b-b118-d44da5b3c10&title=&width=346.6666666666667" alt="image.png"><br>查找命令替换后门，使用rpm校验包是否被修改</p>
+<p>由此确认wxiaoge账户是黑客创建的后门账户<br>排查定时任务：<br><a target="_blank" rel="noopener" href="https://imgse.com/i/pPHO4FH"><img src="https://z1.ax1x.com/2023/09/27/pPHO4FH.png" alt="pPHO4FH.png"></a><br>查找命令替换后门，使用rpm校验包是否被修改</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rpm -Vf /usr/bin/*</span><br><span class="line">rpm -Vf /usr/sbin/*</span><br></pre></td></tr></table></figure>
 
-<p>S：表示对应文件的大小（Size）不一致；<br>T：表示文件的修改时间不一致；<br>5：表示对应文件的MD5不一致；<br>D：表示文件的major和minor号不一致；<br>L：表示文件的符号连接内容不一致；<br>U：表示文件的owner不一致；<br>G：表示文件的group不一致；<br>M：表示对于文件的mode不一致；<br><img src="https://cdn.nlark.com/yuque/0/2023/png/26349912/1693581699530-e2c2816d-322c-4378-986c-9de80fe4c523.png#averageHue=%2324282a&clientId=u8b435fc4-0de0-4&from=paste&height=368&id=u87875260&originHeight=552&originWidth=772&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=80923&status=done&style=none&taskId=u08c07dd4-a27b-4a77-a70d-41cb010abbe&title=&width=514.6666666666666" alt="image.png"><br>随后发现ps的文件类型是script text，查看之<br><img src="https://cdn.nlark.com/yuque/0/2023/png/26349912/1693581807070-0854735f-71dd-4762-b94f-32dfadfc408f.png#averageHue=%2324282c&clientId=u8b435fc4-0de0-4&from=paste&height=132&id=u89f0f4b7&originHeight=198&originWidth=1387&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=46097&status=done&style=none&taskId=u150541ba-bfc1-4074-8bb6-fb1f88a2c23&title=&width=924.6666666666666" alt="image.png"><br>找到后门elf，virustotal查杀<br><img src="https://cdn.nlark.com/yuque/0/2023/png/26349912/1693582011807-212aadd9-0e16-4b4d-ac76-694086bc47bd.png#averageHue=%23fefcfb&clientId=u8b435fc4-0de0-4&from=paste&height=848&id=ue7e47c8b&originHeight=1272&originWidth=1816&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=203536&status=done&style=none&taskId=u72d2fa9d-b31d-4ec0-9906-bd4a1d41d50&title=&width=1210.6666666666667" alt="image.png"><br>由此可见，是shell.elf和centos_core.elf双后门，通过创建时间可以看到<br>植入后门的顺序为： shell.elf 后门、centos_core.elf后门、ps命令替换后门、定时任务<br>复原：</p>
+<p>S：表示对应文件的大小（Size）不一致；<br>T：表示文件的修改时间不一致；<br>5：表示对应文件的MD5不一致；<br>D：表示文件的major和minor号不一致；<br>L：表示文件的符号连接内容不一致；<br>U：表示文件的owner不一致；<br>G：表示文件的group不一致；<br>M：表示对于文件的mode不一致；<br><a target="_blank" rel="noopener" href="https://imgse.com/i/pPHOTSI"><img src="https://z1.ax1x.com/2023/09/27/pPHOTSI.png" alt="pPHOTSI.png"></a><br>随后发现ps的文件类型是script text，查看之<br><a target="_blank" rel="noopener" href="https://imgse.com/i/pPHO5Yd"><img src="https://z1.ax1x.com/2023/09/27/pPHO5Yd.png" alt="pPHO5Yd.png"></a><br>找到后门elf，virustotal查杀<br><a target="_blank" rel="noopener" href="https://imgse.com/i/pPHObOf"><img src="https://z1.ax1x.com/2023/09/27/pPHObOf.png" alt="pPHObOf.png"></a><br>由此可见，是shell.elf和centos_core.elf双后门，通过创建时间可以看到<br>植入后门的顺序为： shell.elf 后门、centos_core.elf后门、ps命令替换后门、定时任务<br>复原：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">rm -rf /root/shell.elf</span><br><span class="line">rm -rf /centos_core.elf</span><br><span class="line">rm -rf /usr/bin/ps</span><br><span class="line">mv /.hide_command/ps  /usr/bin/ps</span><br><span class="line">vim /etc/passwd</span><br><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
 
 <p>溯源总结<br>黑客在1月13日21:51:32——21:58:31对服务器进行爆破，且在21:57:56 成功爆破出root账户密码并且进行登录，登录之后在1月14日00:51:12 植入了 shell.elf 后门、在00:57:03植入了 centos_core.elf后门、在 01:03:42植入了ps命令后门、在 01:05:53写了恶意定时任务，恶意IP：192.168.226.1</p>
@@ -125,7 +125,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://fbdhhhh47.github.io/2023/09/27/%E6%9F%90CentOS%E4%B8%BB%E6%9C%BA%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/" data-id="cln1gi7bl00004g6rdtlvcjcf" data-title="某CentOS主机应急响应" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://fbdhhhh47.github.io/2023/09/27/%E6%9F%90CentOS%E4%B8%BB%E6%9C%BA%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/" data-id="cln1hhxf20003s86r11a58y96" data-title="某CentOS主机应急响应" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
