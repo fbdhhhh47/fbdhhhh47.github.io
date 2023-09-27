@@ -98,7 +98,9 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h3 id="实操1-CentOS"><a href="#实操1-CentOS" class="headerlink" title="实操1 CentOS"></a>实操1 CentOS</h3><p>首先查看异常连接端口：<br>netstat -antp<br><a target="_blank" rel="noopener" href="https://imgse.com/i/pPHO7lt"><img src="https://z1.ax1x.com/2023/09/27/pPHO7lt.png" alt="pPHO7lt.png"></a><br>有异常链接到192.168.226.131:6666 是shell.elf，疑似木马<br>根据pid查找位置：</p>
+        <p>首先查看异常连接端口：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -antp</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pPHO7lt"><img src="https://z1.ax1x.com/2023/09/27/pPHO7lt.png" alt="pPHO7lt.png"></a><br>有异常链接到192.168.226.131:6666 是shell.elf，疑似木马<br>根据pid查找位置：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsof -p pid</span><br></pre></td></tr></table></figure>
 
 <p><a target="_blank" rel="noopener" href="https://imgse.com/i/pPHOIfA"><img src="https://z1.ax1x.com/2023/09/27/pPHOIfA.png" alt="pPHOIfA.png"></a><br>找到木马位置&#x2F;root&#x2F;shell.elf<br>查看history和.bash_history发现记录已经被清除<br>查找特权账户：</p>
@@ -118,7 +120,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://fbdhhhh47.github.io/2023/09/27/%E6%9F%90CentOS%E4%B8%BB%E6%9C%BA%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/" data-id="cln1hhxf20003s86r11a58y96" data-title="某CentOS主机应急响应" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://fbdhhhh47.github.io/2023/09/27/%E6%9F%90CentOS%E4%B8%BB%E6%9C%BA%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/" data-id="cln1i2t430003o06rfj9z3zkt" data-title="某CentOS主机应急响应" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -180,7 +182,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://fbdhhhh47.github.io/2023/06/06/hutool-XXE/" data-id="cln1hhxeu0000s86rgfaehevm" data-title="Hutool-XXE" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://fbdhhhh47.github.io/2023/06/06/hutool-XXE/" data-id="cln1i2t3u0000o06r2u7x0n8k" data-title="Hutool-XXE" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
